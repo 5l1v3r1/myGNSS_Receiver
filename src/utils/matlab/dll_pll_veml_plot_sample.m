@@ -39,7 +39,7 @@ coherent_integration_time_ms = 20; %[ms]
 channels = 32;   % Number of channels
 first_channel = 0;  % Number of the first channel
 
-path = '/media/zhangbo/WorkData/09-Data/20180930-1000-R2-rec15-data/';  %% CHANGE THIS PATH
+path = '/media/zhangbo/WorkData/10-data/10171400-R2-outdoor-rec15-data/';  %% CHANGE THIS PATH
 
 for N=1:1:channels
     tracking_log_path = [path 'tracking_ch_' num2str(N+first_channel-1) '.dat']; %% CHANGE track_ch_ BY YOUR dump_filename

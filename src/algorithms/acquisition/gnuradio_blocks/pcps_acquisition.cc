@@ -228,14 +228,14 @@ bool pcps_acquisition::is_fdma()
         {
             d_old_freq += DFRQ1_GLO * GLONASS_PRN.at(d_gnss_synchro->PRN);
             LOG(INFO) << "Trying to acquire SV PRN " << d_gnss_synchro->PRN << " with freq " << d_old_freq << " in Glonass Channel " << GLONASS_PRN.at(d_gnss_synchro->PRN) << std::endl;
-            std::cout << "Trying to acquire SV PRN " << d_gnss_synchro->PRN << " with freq " << d_old_freq << " in Glonass Channel " << GLONASS_PRN.at(d_gnss_synchro->PRN) << std::endl;
+//            std::cout << "Trying to acquire SV PRN " << d_gnss_synchro->PRN << " with freq " << d_old_freq << " in Glonass Channel " << GLONASS_PRN.at(d_gnss_synchro->PRN) << std::endl;
             return true;
         }
     else if (strcmp(d_gnss_synchro->Signal, "2G") == 0)
         {
             d_old_freq += DFRQ2_GLO * GLONASS_PRN.at(d_gnss_synchro->PRN);
             LOG(INFO) << "Trying to acquire SV PRN " << d_gnss_synchro->PRN << " with freq " << d_old_freq << " in Glonass Channel " << GLONASS_PRN.at(d_gnss_synchro->PRN) << std::endl;
-            std::cout << "Trying to acquire SV PRN " << d_gnss_synchro->PRN << " with freq " << d_old_freq << " in Glonass Channel " << GLONASS_PRN.at(d_gnss_synchro->PRN) << std::endl;
+//            std::cout << "Trying to acquire SV PRN " << d_gnss_synchro->PRN << " with freq " << d_old_freq << " in Glonass Channel " << GLONASS_PRN.at(d_gnss_synchro->PRN) << std::endl;
             return true;
         }
     else

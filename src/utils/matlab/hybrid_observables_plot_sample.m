@@ -31,7 +31,7 @@ close all;
 addpath('./libs');
 samplingFreq       = 6625000;     %[Hz]
 channels=32;
-path='/media/zhangbo/WorkData/09-Data/20180930-1000-R2-rec15-data/';
+path='/media/zhangbo/WorkData/10-data/10171630-R2-outdoor-rec12-data/';
 %path='/media/zhangbo/WorkData/20180903-test/09041640/'
 observables_log_path=[path 'observables.dat'];
 GNSS_observables= read_hybrid_observables_dump(channels,observables_log_path);

@@ -269,7 +269,7 @@ bool rtklib_solver::get_PVT(const std::map<int, Gnss_Synchro>& gnss_observables_
                         if (sig_.compare("1C") == 0)
                             {
 
-                                std::cout<<TEXT_BOLD_BLUE<<gnss_observables_iter->second.PRN<<"  "<<TEXT_RESET;
+                                std::cout<<TEXT_BOLD_BLUE<<" "<<gnss_observables_iter->second.PRN<<" "<<TEXT_RESET;
 
                                 gps_ephemeris_iter = gps_ephemeris_map.find(gnss_observables_iter->second.PRN);
                                 if (gps_ephemeris_iter != gps_ephemeris_map.cend())
@@ -287,6 +287,7 @@ bool rtklib_solver::get_PVT(const std::map<int, Gnss_Synchro>& gnss_observables_
                                 else  // the ephemeris are not available for this SV
                                     {
                                         DLOG(INFO) << "No ephemeris data for SV " << gnss_observables_iter->first;
+//                                        std::cout<<"DLOG(INFO) "<< "No ephemeris data for SV " << gnss_observables_iter->first;
                                     }
                             }
                         // GPS L2 (todo: solve NAV/CNAV clash)
@@ -459,7 +460,7 @@ bool rtklib_solver::get_PVT(const std::map<int, Gnss_Synchro>& gnss_observables_
                 }
         }
 
-        std::cout<<TEXT_BOLD_BLUE<<" }"<<TEXT_RESET<<std::endl;
+        std::cout<<TEXT_BOLD_BLUE<<" } "<<"valid_obs= "<<valid_obs<<TEXT_RESET<<std::endl;
 
     // **********************************************************************
     // ****** SOLVE PVT******************************************************

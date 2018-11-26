@@ -791,6 +791,8 @@ int rtklib_pvt_cc::work(int noutput_items, gr_vector_const_void_star& input_item
                                             gps_cnav_ephemeris_iter = d_ls_pvt->gps_cnav_ephemeris_map.cbegin();
                                             glonass_gnav_ephemeris_iter = d_ls_pvt->glonass_gnav_ephemeris_map.cbegin();
 
+//                                            std::cout<<TEXT_BOLD_RED<<"type_of_rx= "<<type_of_rx<<TEXT_RESET<<std::endl;
+
                                             if (type_of_rx == 1)  // GPS L1 C/A only
                                                 {
                                                     if (gps_ephemeris_iter != d_ls_pvt->gps_ephemeris_map.cend())
@@ -798,6 +800,7 @@ int rtklib_pvt_cc::work(int noutput_items, gr_vector_const_void_star& input_item
                                                             rp->rinex_obs_header(rp->obsFile, gps_ephemeris_iter->second, d_rx_time);
                                                             rp->rinex_nav_header(rp->navFile, d_ls_pvt->gps_iono, d_ls_pvt->gps_utc_model);
                                                             b_rinex_header_written = true;  // do not write header anymore
+                                                            std::cout<<TEXT_BOLD_RED<<"Write RINEX header: Start: "<<TEXT_RESET<<std::endl;
                                                         }
                                                 }
                                             if (type_of_rx == 2)  // GPS L2C only

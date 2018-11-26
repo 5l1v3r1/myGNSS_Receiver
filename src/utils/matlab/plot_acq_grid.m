@@ -28,13 +28,13 @@
 
 %%%%%%%%% ?????? CONFIGURE !!! %%%%%%%%%%%%%
 
-path = '/home/zhangbo/workspace/gnss-sdr/build/src/main/data/';
+path = '/media/zhangbo/WorkData/10-data/10171630-R2-outdoor-rec12-data/';
 file = 'acq_dump';
 
 sat = 1;
 
 channel = 0;
-execution = 1;
+execution = 30;
 % Signal:
 %     1 GPS  L1
 %     2 GPS  L2M

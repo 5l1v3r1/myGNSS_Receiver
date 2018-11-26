@@ -417,8 +417,8 @@ void dll_pll_veml_tracking::start_tracking()
     double acq_trk_diff_seconds = static_cast<double>(acq_trk_diff_samples) / trk_parameters.fs_in;
     DLOG(INFO) << "Number of samples between Acquisition and Tracking = " << acq_trk_diff_samples;
     DLOG(INFO) << "Number of seconds between Acquisition and Tracking = " << acq_trk_diff_seconds;
-    std::cout << "Number of samples between Acquisition and Tracking = " << acq_trk_diff_samples<<std::endl;
-    std::cout << "Number of seconds between Acquisition and Tracking = " << acq_trk_diff_seconds<<std::endl;
+//    std::cout << "Number of samples between Acquisition and Tracking = " << acq_trk_diff_samples<<std::endl;
+//    std::cout << "Number of seconds between Acquisition and Tracking = " << acq_trk_diff_seconds<<std::endl;
     // Doppler effect Fd = (C / (C + Vr)) * F
     double radial_velocity = (d_signal_carrier_freq + d_acq_carrier_doppler_hz) / d_signal_carrier_freq;
     // new chip and PRN sequence periods based on acq Doppler
@@ -556,9 +556,9 @@ void dll_pll_veml_tracking::start_tracking()
     LOG(INFO) << "PULL-IN Doppler [Hz] = " << d_carrier_doppler_hz
               << ". Code Phase correction [samples] = " << delay_correction_samples
               << ". PULL-IN Code Phase [samples] = " << d_acq_code_phase_samples;
-    std::cout << "PULL-IN Doppler [Hz] = " << d_carrier_doppler_hz
-              << ". Code Phase correction [samples] = " << delay_correction_samples
-              << ". PULL-IN Code Phase [samples] = " << d_acq_code_phase_samples;
+//    std::cout << "PULL-IN Doppler [Hz] = " << d_carrier_doppler_hz
+//              << ". Code Phase correction [samples] = " << delay_correction_samples
+//              << ". PULL-IN Code Phase [samples] = " << d_acq_code_phase_samples;
 }
 
 
@@ -683,7 +683,7 @@ bool dll_pll_veml_tracking::cn0_and_tracking_lock_status(double coh_integration_
                 }
             if (d_carrier_lock_fail_counter > trk_parameters.max_lock_fail)
                 {
-                    std::cout << "Loss of lock in channel " << d_channel << "!" << std::endl;
+//                    std::cout << "Loss of lock in channel " << d_channel << "!" << std::endl;
                     LOG(INFO) << "Loss of lock in channel " << d_channel << "!";
                     this->message_port_pub(pmt::mp("events"), pmt::from_long(3));  // 3 -> loss of lock
                     d_carrier_lock_fail_counter = 0;
@@ -1209,7 +1209,7 @@ void dll_pll_veml_tracking::set_channel(unsigned int channel)
     gr::thread::scoped_lock l(d_setlock);
     d_channel = channel;
     LOG(INFO) << "Tracking Channel set to " << d_channel;
-    std::cout << "Tracking Channel set to " << d_channel;
+//    std::cout << "Tracking Channel set to " << d_channel;
     // ############# ENABLE DATA FILE LOG #################
     if (trk_parameters.dump)
         {
@@ -1222,12 +1222,12 @@ void dll_pll_veml_tracking::set_channel(unsigned int channel)
                             d_dump_file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
                             d_dump_file.open(trk_parameters.dump_filename.c_str(), std::ios::out | std::ios::binary);
                             LOG(INFO) << "Tracking dump enabled on channel " << d_channel << " Log file: " << trk_parameters.dump_filename.c_str();
-                            std::cout << "Tracking dump enabled on channel " << d_channel << " Log file: " << trk_parameters.dump_filename.c_str();
+//                            std::cout << "Tracking dump enabled on channel " << d_channel << " Log file: " << trk_parameters.dump_filename.c_str();
                         }
                     catch (const std::ifstream::failure &e)
                         {
                             LOG(WARNING) << "channel " << d_channel << " Exception opening trk dump file " << e.what();
-                            std::cout<< "channel " << d_channel << " Exception opening trk dump file " << e.what();
+//                            std::cout<< "channel " << d_channel << " Exception opening trk dump file " << e.what();
                         }
                 }
         }
@@ -1418,9 +1418,9 @@ int dll_pll_veml_tracking::general_work(int noutput_items __attribute__((unused)
                                         LOG(INFO) << "Enabled " << trk_parameters.extend_correlation_symbols * static_cast<int>(d_code_period * 1000.0) << " ms extended correlator in channel "
                                                   << d_channel
                                                   << " for satellite " << Gnss_Satellite(systemName, d_acquisition_gnss_synchro->PRN);
-                                        std::cout << "Enabled " << trk_parameters.extend_correlation_symbols * static_cast<int>(d_code_period * 1000.0) << " ms extended correlator in channel "
-                                                  << d_channel
-                                                  << " for satellite " << Gnss_Satellite(systemName, d_acquisition_gnss_synchro->PRN) << std::endl;
+//                                        std::cout << "Enabled " << trk_parameters.extend_correlation_symbols * static_cast<int>(d_code_period * 1000.0) << " ms extended correlator in channel "
+//                                                  << d_channel
+//                                                  << " for satellite " << Gnss_Satellite(systemName, d_acquisition_gnss_synchro->PRN) << std::endl;
                                         // Set narrow taps delay values [chips]
                                         d_code_loop_filter.set_DLL_BW(trk_parameters.dll_bw_narrow_hz);
                                         d_carrier_loop_filter.set_PLL_BW(trk_parameters.pll_bw_narrow_hz);
